@@ -1,0 +1,144 @@
+/* --- Global Variables & Theme Config --- */
+:root {
+    /* Glass Colors */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-heavy: rgba(255, 255, 255, 0.12);
+    
+    /* Portal Accents */
+    --admin-blue: #60a5fa;      /* Main User/Admin Theme */
+    --vendor-emerald: #10b981;  /* Vendor Domain Theme */
+    --danger-red: #f87171;
+    
+    /* Text */
+    --text-main: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Base Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Calibri', sans-serif; /* Calibri as per mockup */
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Universal Mesh Gradient */
+    background: radial-gradient(circle at top left, #1e3a8a, #020617);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- The Glass Canvas Component --- */
+.glass-canvas {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-canvas:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Interactive Input Styles --- */
+.glass-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 15px 20px;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.glass-input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--admin-blue);
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+}
+
+/* --- Powerful Buttons --- */
+.btn-powerful {
+    background: linear-gradient(135deg, var(--admin-blue), #2563eb);
+    color: #020617;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-powerful:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+}
+
+.btn-emerald {
+    background: linear-gradient(135deg, var(--vendor-emerald), #059669);
+    color: #064e3b;
+}
+
+/* --- Interactive Tables --- */
+.glass-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.glass-table th {
+    background: var(--glass-heavy);
+    padding: 18px;
+    text-align: left;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--glass-border);
+}
+
+.glass-table td {
+    padding: 18px;
+    border-bottom: 1px solid var(--glass-border);
+    transition: background 0.3s ease;
+}
+
+.glass-table tr:hover td {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--admin-blue);
+}
+
+/* --- Animations --- */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(96, 165, 250, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
+}
+
+/* --- Utility Classes --- */
+.text-accent { color: var(--admin-blue); }
+.text-emerald { color: var(--vendor-emerald); }
+.mt-20 { margin-top: 20px; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
